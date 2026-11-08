@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <title>Entrando no Amigo Secreto...</title>
+</head>
+<body>
+    <h3>Redirecionando para o aplicativo...</h3>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code');
+
+        if (code) {
+            // 1. Se o app estiver instalado no celular, abre o app direto!
+            window.location.href = "amigosecretox://join?code=" + code;
+
+            // 2. Se o app NÃO estiver instalado, redireciona para a Play Store em 1,5s
+            setTimeout(function() {
+                window.location.href = "https://play.google.com/store/apps/details?id=com.celsinhoricardo.amigosecretox";
+            }, 1500);
+        }
+    </script>
+</body>
+</html>
